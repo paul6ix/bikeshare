@@ -1,8 +1,7 @@
-import time
-import pandas as pd
 import datetime
-import numpy as np
-from scipy import stats
+import time
+
+import pandas as pd
 
 CITY_DATA = {'chicago': 'chicago.csv',
              'new york city': 'new_york_city.csv',
@@ -47,31 +46,33 @@ def get_filters():
         print('Good evening.' + name)
 
     print("Hello! " + name + " This is a program that helps you analyze data on US bikeshare")
-    print(name + "Please not all letters must be typed in lower caps to avoid unnecessary errors")
+    # switched all inputs to lowercase and removed this notification here
+    # print(name + " Please not all letters must be typed in lower caps to avoid unnecessary errors")
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     try:
-        city = input(name + ' Which of the city\'s data, would like to analyze? chicago, new york city or washington?')
+        city = input(
+            name + ' Which of the city\'s data, would like to analyze? chicago, new york city or washington?').lower()
         while city not in CITY_DATA:
             print('invalid input!!,please check your spelling!')
-            city = input('Which city you would like to analyze? chicago, new york city or washington?')
+            city = input('Which city you would like to analyze? chicago, new york city or washington?').lower()
 
         print('You selected: ', city)
 
         # get user input for month (all, january, february, ... , june)
-        month = input('Which month you would like to analyze from january to june? Or simply all of them?')
+        month = input('Which month you would like to analyze from january to june? Or simply all of them?').lower()
         while month not in MONTH_LIST:
             print('Seems like there is a typo or something else, please consider your spelling!')
-            month = input('Which month you would like to analyze from january to june? Or simply all of them?')
+            month = input('Which month you would like to analyze from january to june? Or simply all of them?').lower()
             print("enter \"january to june\" or \"all\"")
 
         print('You selected:  ', month)
 
         # get user input for day of week (all, monday, tuesday, ... sunday)
-        day = input('Which day you would like to analyze? Or simply all of them?')
+        day = input('Which day you would like to analyze? Or simply all of them?').lower()
         print("enter \"monday to sunday\" or \"all\"")
         while day not in DAYS_LIST:
             print('Seems like there is a typo or something else, please consider your spelling!')
-            day = input('Which day you would like to analyze? Or simply all of them?')
+            day = input('Which day you would like to analyze? Or simply all of them?').lower()
 
         print('You selected:  ', day)
 
@@ -248,7 +249,7 @@ def main():
         trip_duration_stats(df, city)
         user_stats(df, city)
 
-        restart = input('\nWould you like to get more statistics? Enter yes or no.\n')
+        restart = input('\nWould you like to get more statistics? Enter yes or no.\n').lower()
         if restart.lower() != 'yes':
             break
 
