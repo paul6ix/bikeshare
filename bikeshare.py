@@ -238,6 +238,27 @@ def user_stats(df, city):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-' * 40)
+    # Added function to display data used for data computation
+
+
+def show_raw_data(df):
+    """
+    Displays the data used for analysis
+    """
+    #
+    df = df.drop(['month', 'day_of_week'], axis=1)
+    row_index = 0
+
+    show_data = input(
+        "\n would you like to see rows of the data used for analysis? Please type 'yes' or 'no' \n").lower()
+    while True:
+        if show_data == 'no':
+            return
+        if show_data == 'yes':
+            print(df[row_index: row_index + 5])
+            row_index = row_index + 5
+        show_data = input(
+            "\n Would you like to see  more rows of data used for analysis? Please type 'yes' or 'no' \n").lower()
 
 
 def main():
@@ -248,6 +269,7 @@ def main():
         station_stats(df, city)
         trip_duration_stats(df, city)
         user_stats(df, city)
+        show_raw_data(df)
 
         restart = input('\nWould you like to get more statistics? Enter yes or no.\n').lower()
         if restart.lower() != 'yes':
