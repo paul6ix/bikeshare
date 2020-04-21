@@ -1,10 +1,10 @@
 # bikeshare
 Udacity Us bikeshare project submission wrtiten with python 
-#Description
+# Description
 Run statistics on multiple data pools related to bicycle sharing
 
-#Files used
+# Files used
 new_york_city.csv chicago.csv washington.csv
 
-#Credits
+# Credits
 Thank you to Udacity!
