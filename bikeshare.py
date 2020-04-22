@@ -37,7 +37,6 @@ def get_filters():
     # Greeting user as they start the program on the particular time of the day
     name = input("Please enter your name")
     current_time = datetime.datetime.now()
-    current_time.hour
     if current_time.hour < 12:
         print('Good morning. ' + name)
     elif 12 <= current_time.hour < 18:
